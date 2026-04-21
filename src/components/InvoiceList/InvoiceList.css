@@ -1,0 +1,66 @@
+.invoice-list {}
+
+.invoice-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 56px;
+}
+
+.invoice-list__title-group {
+  flex: 1;
+}
+
+.invoice-list__title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.invoice-list__count {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.invoice-list__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.invoice-list__items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .invoice-list__header {
+    margin-bottom: 32px;
+  }
+
+  .invoice-list__title {
+    font-size: 24px;
+  }
+
+  .invoice-list__actions {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .invoice-list__header {
+    margin-bottom: 24px;
+  }
+
+  .invoice-list__title {
+    font-size: 20px;
+  }
+
+  .invoice-list__actions {
+    gap: 12px;
+  }
+}

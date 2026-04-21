@@ -1,0 +1,114 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.25px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --- Primary --- */
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+/* --- Secondary --- */
+.btn--secondary {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-muted);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-border);
+}
+
+/* --- Danger --- */
+.btn--danger {
+  background-color: var(--color-danger);
+  color: #FFFFFF;
+}
+
+.btn--danger:hover:not(:disabled) {
+  background-color: var(--color-danger-hover);
+}
+
+/* --- Dark --- */
+.btn--dark {
+  background-color: #373B53;
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .btn--dark {
+  background-color: #252945;
+  color: var(--color-text-secondary);
+}
+
+.btn--dark:hover:not(:disabled) {
+  background-color: #0C0E16;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .btn--dark:hover:not(:disabled) {
+  background-color: #1E2139;
+}
+
+/* --- With Icon (New Invoice button) --- */
+.btn--with-icon {
+  padding-left: 8px;
+}
+
+.btn__icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn__icon-circle img {
+  width: 11px;
+  height: 11px;
+}
+
+/* --- Edit (text-style) --- */
+.btn--edit {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  padding: 12px 24px;
+}
+
+.btn--edit:hover:not(:disabled) {
+  background-color: var(--color-border);
+}
+
+[data-theme="dark"] .btn--edit {
+  background-color: #252945;
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .btn--edit:hover:not(:disabled) {
+  background-color: #FFFFFF;
+  color: #7E88C3;
+}
