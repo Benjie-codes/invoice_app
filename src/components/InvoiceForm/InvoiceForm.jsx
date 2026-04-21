@@ -4,6 +4,7 @@ import { validateInvoice } from '../../utils/validation';
 import { PAYMENT_TERMS_OPTIONS } from '../../utils/helpers';
 import ItemRow from './ItemRow';
 import Button from '../UI/Button';
+import arrowLeft from '../../assets/icon-arrow-left.svg';
 import './InvoiceForm.css';
 
 const emptyItem = { name: '', quantity: '', price: '', total: 0 };
@@ -163,6 +164,11 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
         aria-modal="true"
         aria-label={mode === 'create' ? 'New Invoice' : `Edit Invoice ${invoiceId}`}
       >
+        <button type="button" className="invoice-form__back" onClick={onClose}>
+          <img src={arrowLeft} alt="" aria-hidden="true" />
+          Go back
+        </button>
+
         <h2 className="invoice-form-panel__title">
           {mode === 'create' ? (
             'New Invoice'

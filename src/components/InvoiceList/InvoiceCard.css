@@ -83,6 +83,7 @@
   .invoice-card__amount {
     grid-column: 1;
     grid-row: 3;
+    text-align: left;
   }
 
   .invoice-card__status {

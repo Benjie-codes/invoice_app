@@ -26,18 +26,26 @@ export default function InvoiceList({ onViewInvoice, onNewInvoice }) {
     return `There are ${count} total invoices`;
   }, [filteredInvoices]);
 
+  const mobileCountText = useMemo(() => {
+    const count = filteredInvoices.length;
+    if (count === 0) return 'No invoices';
+    return `${count} invoices`;
+  }, [filteredInvoices]);
+
   return (
     <div className="invoice-list">
       <header className="invoice-list__header">
         <div className="invoice-list__title-group">
           <h1 className="invoice-list__title">Invoices</h1>
-          <p className="invoice-list__count">{countText}</p>
+          <p className="invoice-list__count invoice-list__count--desktop">{countText}</p>
+          <p className="invoice-list__count invoice-list__count--mobile">{mobileCountText}</p>
         </div>
 
         <div className="invoice-list__actions">
           <FilterDropdown filters={filters} onFilterChange={setFilters} />
           <Button variant="primary" withIcon onClick={onNewInvoice}>
-            New Invoice
+            <span className="invoice-list__btn-text--desktop">New Invoice</span>
+            <span className="invoice-list__btn-text--mobile">New</span>
           </Button>
         </div>
       </header>

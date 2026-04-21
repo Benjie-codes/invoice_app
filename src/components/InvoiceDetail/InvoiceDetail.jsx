@@ -113,7 +113,7 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
             </div>
           </div>
 
-          <div>
+          <div className="invoice-detail__info-email">
             <div className="invoice-detail__info-label">Sent to</div>
             <div className="invoice-detail__info-value">{invoice.clientEmail}</div>
           </div>
@@ -121,25 +121,33 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
 
         {/* Items Table */}
         <div className="invoice-detail__table">
+          {/* Desktop table header */}
           <div className="invoice-detail__table-header">
             <span>Item Name</span>
             <span>QTY.</span>
             <span>Price</span>
             <span>Total</span>
           </div>
+
           {invoice.items.map((item, index) => (
             <div key={index} className="invoice-detail__table-row">
               <span className="invoice-detail__item-name">{item.name}</span>
+              {/* Desktop: separate qty and price */}
               <span className="invoice-detail__item-qty">{item.quantity}</span>
               <span className="invoice-detail__item-price">{formatCurrency(item.price)}</span>
+              {/* Mobile: combined "qty x £ price" */}
+              <span className="invoice-detail__item-qty-price">
+                {item.quantity} x {formatCurrency(item.price)}
+              </span>
               <span className="invoice-detail__item-total">{formatCurrency(item.total)}</span>
             </div>
           ))}
         </div>
 
-        {/* Amount Due */}
+        {/* Amount Due / Grand Total */}
         <div className="invoice-detail__total">
-          <span className="invoice-detail__total-label">Amount Due</span>
+          <span className="invoice-detail__total-label invoice-detail__total-label--desktop">Amount Due</span>
+          <span className="invoice-detail__total-label invoice-detail__total-label--mobile">Grand Total</span>
           <span className="invoice-detail__total-amount">{formatCurrency(invoice.total)}</span>
         </div>
       </div>

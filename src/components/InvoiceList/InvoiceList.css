@@ -24,6 +24,15 @@
   color: var(--color-text-muted);
 }
 
+/* Desktop/Mobile text visibility */
+.invoice-list__count--mobile {
+  display: none;
+}
+
+.invoice-list__btn-text--mobile {
+  display: none;
+}
+
 .invoice-list__actions {
   display: flex;
   align-items: center;
@@ -58,6 +67,22 @@
 
   .invoice-list__title {
     font-size: 20px;
+  }
+
+  .invoice-list__count--desktop {
+    display: none;
+  }
+
+  .invoice-list__count--mobile {
+    display: block;
+  }
+
+  .invoice-list__btn-text--desktop {
+    display: none;
+  }
+
+  .invoice-list__btn-text--mobile {
+    display: inline;
   }
 
   .invoice-list__actions {

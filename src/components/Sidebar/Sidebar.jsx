@@ -1,7 +1,8 @@
 import { useTheme } from '../../context/ThemeContext';
-import logo from '../../assets/logo.svg';
-import moonIcon from '../../assets/icon-moon.svg';
-import sunIcon from '../../assets/icon-sun.svg';
+import logo from '../../assets/Logo.png';
+import avatarImg from '../../assets/Oval.png';
+import moonIcon from '../../assets/path.svg';
+import sunIcon from '../../assets/sun.svg';
 import './Sidebar.css';
 
 export default function Sidebar() {
@@ -30,7 +31,7 @@ export default function Sidebar() {
         <div className="sidebar__avatar">
           <img
             className="sidebar__avatar-img"
-            src="https://ui-avatars.com/api/?name=BJ&background=7C5DFA&color=fff&size=80&rounded=true&bold=true"
+            src={avatarImg}
             alt="User avatar"
           />
         </div>
