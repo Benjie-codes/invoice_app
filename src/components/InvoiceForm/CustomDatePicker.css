@@ -1,0 +1,151 @@
+.custom-datepicker {
+  position: relative;
+}
+
+.custom-datepicker__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--color-input-border);
+  border-radius: 4px;
+  background-color: var(--color-input-bg);
+  color: var(--color-text-primary);
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.25px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  outline: none;
+  text-align: left;
+}
+
+.custom-datepicker__trigger:focus,
+.custom-datepicker__trigger--open {
+  border-color: var(--color-input-border-focus);
+}
+
+.custom-datepicker__trigger--error {
+  border-color: var(--color-input-border-error);
+}
+
+.custom-datepicker__trigger-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+/* --- Calendar Dropdown --- */
+.custom-datepicker__calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(72, 84, 159, 0.25);
+  padding: 24px;
+  z-index: 60;
+  animation: calendarFadeIn 0.2s ease;
+}
+
+[data-theme="dark"] .custom-datepicker__calendar {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes calendarFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Month navigation */
+.custom-datepicker__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.custom-datepicker__nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.custom-datepicker__nav-btn:hover {
+  opacity: 0.6;
+}
+
+.custom-datepicker__nav-btn img {
+  width: 7px;
+  height: 10px;
+}
+
+.custom-datepicker__month-label {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  letter-spacing: -0.25px;
+}
+
+/* Day Grid */
+.custom-datepicker__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.custom-datepicker__day {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  padding: 6px 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.2s ease;
+  line-height: 1;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-datepicker__day:hover {
+  color: var(--color-primary);
+}
+
+.custom-datepicker__day--today {
+  color: var(--color-primary);
+}
+
+.custom-datepicker__day--selected {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.custom-datepicker__day--selected:hover {
+  color: #FFFFFF;
+}
+
+.custom-datepicker__day--outside {
+  color: var(--color-text-muted);
+  opacity: 0.4;
+}

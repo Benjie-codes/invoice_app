@@ -22,9 +22,15 @@ export default function InvoiceList({ onViewInvoice, onNewInvoice }) {
   const countText = useMemo(() => {
     const count = filteredInvoices.length;
     if (count === 0) return 'No invoices';
+    // When exactly one filter is active, show status-specific text
+    if (filters.length === 1) {
+      const status = filters[0];
+      if (count === 1) return `There is 1 ${status} invoice`;
+      return `There are ${count} ${status} invoices`;
+    }
     if (count === 1) return 'There is 1 total invoice';
     return `There are ${count} total invoices`;
-  }, [filteredInvoices]);
+  }, [filteredInvoices, filters]);
 
   const mobileCountText = useMemo(() => {
     const count = filteredInvoices.length;

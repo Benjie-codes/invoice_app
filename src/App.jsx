@@ -7,26 +7,19 @@ import InvoiceDetail from './components/InvoiceDetail/InvoiceDetail';
 import InvoiceForm from './components/InvoiceForm/InvoiceForm';
 import DeleteModal from './components/Modal/DeleteModal';
 
-/**
- * Main app content with view routing.
- */
 function AppContent() {
   const { deleteInvoice } = useInvoices();
 
-  // View state: 'list' or 'detail'
   const [currentView, setCurrentView] = useState('list');
   const [selectedInvoiceId, setSelectedInvoiceId] = useState(null);
 
-  // Form state
   const [formOpen, setFormOpen] = useState(false);
-  const [formMode, setFormMode] = useState('create'); // 'create' | 'edit'
+  const [formMode, setFormMode] = useState('create');
   const [editInvoiceId, setEditInvoiceId] = useState(null);
 
-  // Delete modal state
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteTargetId, setDeleteTargetId] = useState(null);
 
-  // --- Navigation ---
   const handleViewInvoice = useCallback((id) => {
     setSelectedInvoiceId(id);
     setCurrentView('detail');
@@ -37,7 +30,6 @@ function AppContent() {
     setSelectedInvoiceId(null);
   }, []);
 
-  // --- Form ---
   const handleNewInvoice = useCallback(() => {
     setFormMode('create');
     setEditInvoiceId(null);
@@ -55,7 +47,6 @@ function AppContent() {
     setEditInvoiceId(null);
   }, []);
 
-  // --- Delete ---
   const handleDeleteRequest = useCallback((id) => {
     setDeleteTargetId(id);
     setDeleteModalOpen(true);
@@ -66,7 +57,6 @@ function AppContent() {
       deleteInvoice(deleteTargetId);
       setDeleteModalOpen(false);
       setDeleteTargetId(null);
-      // Go back to list if we deleted the currently viewed invoice
       if (currentView === 'detail' && selectedInvoiceId === deleteTargetId) {
         setCurrentView('list');
         setSelectedInvoiceId(null);
@@ -103,7 +93,6 @@ function AppContent() {
         </div>
       </main>
 
-      {/* Invoice Form Panel */}
       {formOpen && (
         <InvoiceForm
           mode={formMode}
@@ -112,7 +101,6 @@ function AppContent() {
         />
       )}
 
-      {/* Delete Confirmation Modal */}
       {deleteModalOpen && deleteTargetId && (
         <DeleteModal
           invoiceId={deleteTargetId}
@@ -124,9 +112,6 @@ function AppContent() {
   );
 }
 
-/**
- * Root App component with providers.
- */
 export default function App() {
   return (
     <ThemeProvider>

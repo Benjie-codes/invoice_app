@@ -3,6 +3,8 @@ import { useInvoices } from '../../context/InvoiceContext';
 import { validateInvoice } from '../../utils/validation';
 import { PAYMENT_TERMS_OPTIONS } from '../../utils/helpers';
 import ItemRow from './ItemRow';
+import CustomDatePicker from './CustomDatePicker';
+import CustomSelect from './CustomSelect';
 import Button from '../UI/Button';
 import arrowLeft from '../../assets/icon-arrow-left.svg';
 import './InvoiceForm.css';
@@ -154,10 +156,8 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
 
   return (
     <>
-      {/* Overlay */}
       <div className="invoice-form-overlay" onClick={onClose} aria-hidden="true" />
 
-      {/* Panel */}
       <div
         className="invoice-form-panel"
         role="dialog"
@@ -178,7 +178,6 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
         </h2>
 
         <form onSubmit={mode === 'edit' ? handleSaveChanges : handleSaveAndSend} noValidate>
-          {/* === Bill From === */}
           <p className="invoice-form__section-title">Bill From</p>
 
           <div className="invoice-form__group">
@@ -235,7 +234,6 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
             </div>
           </div>
 
-          {/* === Bill To === */}
           <p className="invoice-form__section-title">Bill To</p>
 
           <div className="invoice-form__group">
@@ -317,33 +315,25 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
             </div>
           </div>
 
-          {/* === Invoice Details === */}
           <div className="invoice-form__row invoice-form__row--2">
             <div className="invoice-form__group">
               <div className="invoice-form__label-row">
                 <label className={`invoice-form__label ${errors.createdAt ? 'invoice-form__label--error' : ''}`}>Invoice Date</label>
                 {errors.createdAt && <span className="invoice-form__error-text">{errors.createdAt}</span>}
               </div>
-              <input
-                type="date"
-                className={`invoice-form__input ${errors.createdAt ? 'invoice-form__input--error' : ''}`}
+              <CustomDatePicker
                 value={formData.createdAt}
-                onChange={(e) => updateField('createdAt', e.target.value)}
+                onChange={(dateStr) => updateField('createdAt', dateStr)}
+                hasError={!!errors.createdAt}
               />
             </div>
             <div className="invoice-form__group">
               <label className="invoice-form__label">Payment Terms</label>
-              <select
-                className="invoice-form__select"
+              <CustomSelect
                 value={formData.paymentTerms}
-                onChange={(e) => updateField('paymentTerms', Number(e.target.value))}
-              >
-                {PAYMENT_TERMS_OPTIONS.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
+                options={PAYMENT_TERMS_OPTIONS}
+                onChange={(val) => updateField('paymentTerms', val)}
+              />
             </div>
           </div>
 
@@ -361,7 +351,6 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
             />
           </div>
 
-          {/* === Item List === */}
           <h3 className="invoice-form__items-title">Item List</h3>
 
           <div className="invoice-form__items-header">
@@ -393,7 +382,6 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
             + Add New Item
           </button>
 
-          {/* Error summary */}
           {hasErrors && (
             <div className="invoice-form__errors">
               <p className="invoice-form__error-msg">- All fields must be added</p>

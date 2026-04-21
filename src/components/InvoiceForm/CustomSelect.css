@@ -1,0 +1,96 @@
+.custom-select {
+  position: relative;
+}
+
+.custom-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--color-input-border);
+  border-radius: 4px;
+  background-color: var(--color-input-bg);
+  color: var(--color-text-primary);
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.25px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  outline: none;
+  text-align: left;
+}
+
+.custom-select__trigger:focus,
+.custom-select__trigger--open {
+  border-color: var(--color-input-border-focus);
+}
+
+.custom-select__arrow {
+  width: 11px;
+  height: 7px;
+  transition: transform 0.3s ease;
+}
+
+.custom-select__arrow--open {
+  transform: rotate(180deg);
+}
+
+/* --- Dropdown Menu --- */
+.custom-select__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(72, 84, 159, 0.25);
+  z-index: 60;
+  overflow: hidden;
+  animation: selectFadeIn 0.2s ease;
+}
+
+[data-theme="dark"] .custom-select__menu {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes selectFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-select__option {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.25px;
+  color: var(--color-text-primary);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.custom-select__option:last-child {
+  border-bottom: none;
+}
+
+.custom-select__option:hover {
+  color: var(--color-primary);
+}
+
+.custom-select__option--selected {
+  color: var(--color-primary);
+}
