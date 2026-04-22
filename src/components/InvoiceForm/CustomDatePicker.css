@@ -31,6 +31,11 @@
   border-color: var(--color-input-border-error);
 }
 
+.custom-datepicker__trigger--placeholder span{
+  color: var(--color-text-muted);
+  opacity: 0.2;
+}
+
 .custom-datepicker__trigger-icon {
   width: 16px;
   height: 16px;

@@ -139,7 +139,7 @@ export default function CustomDatePicker({ value, onChange, hasError = false }) 
     <div className="custom-datepicker" ref={ref}>
       <button
         type="button"
-        className={`custom-datepicker__trigger ${isOpen ? 'custom-datepicker__trigger--open' : ''} ${hasError ? 'custom-datepicker__trigger--error' : ''}`}
+        className={`custom-datepicker__trigger ${isOpen ? 'custom-datepicker__trigger--open' : ''} ${hasError ? 'custom-datepicker__trigger--error' : ''} ${!value ? 'custom-datepicker__trigger--placeholder' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Select date"
       >
