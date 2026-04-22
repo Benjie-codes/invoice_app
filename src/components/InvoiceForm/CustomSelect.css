@@ -37,7 +37,6 @@
   transform: rotate(180deg);
 }
 
-/* --- Dropdown Menu --- */
 .custom-select__menu {
   position: absolute;
   top: calc(100% + 8px);

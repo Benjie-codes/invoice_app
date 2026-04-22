@@ -112,7 +112,6 @@
   user-select: none;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .filter-dropdown__trigger-text--full {
     display: none;

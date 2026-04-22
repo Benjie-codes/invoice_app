@@ -6,10 +6,6 @@ import EmptyState from './EmptyState';
 import Button from '../UI/Button';
 import './InvoiceList.css';
 
-/**
- * Invoice list page component.
- * @param {{ onViewInvoice: (id: string) => void, onNewInvoice: () => void }} props
- */
 export default function InvoiceList({ onViewInvoice, onNewInvoice }) {
   const { invoices } = useInvoices();
   const [filters, setFilters] = useState([]);
@@ -22,7 +18,7 @@ export default function InvoiceList({ onViewInvoice, onNewInvoice }) {
   const countText = useMemo(() => {
     const count = filteredInvoices.length;
     if (count === 0) return 'No invoices';
-    // When exactly one filter is active, show status-specific text
+    
     if (filters.length === 1) {
       const status = filters[0];
       if (count === 1) return `There is 1 ${status} invoice`;

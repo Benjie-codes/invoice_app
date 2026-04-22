@@ -10,20 +10,14 @@ const MONTH_NAMES = [
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
 ];
 
-/**
- * Custom calendar date picker matching the design system.
- * @param {{ value: string, onChange: (dateStr: string) => void, hasError?: boolean }} props
- */
 export default function CustomDatePicker({ value, onChange, hasError = false }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
-  // Parse the current value to determine viewed month
   const selectedDate = value ? new Date(value + 'T00:00:00') : new Date();
   const [viewYear, setViewYear] = useState(selectedDate.getFullYear());
   const [viewMonth, setViewMonth] = useState(selectedDate.getMonth());
 
-  // Sync view when value changes externally
   useEffect(() => {
     if (value) {
       const d = new Date(value + 'T00:00:00');
@@ -32,7 +26,6 @@ export default function CustomDatePicker({ value, onChange, hasError = false }) 
     }
   }, [value]);
 
-  // Close on outside click
   useEffect(() => {
     function handleClickOutside(e) {
       if (ref.current && !ref.current.contains(e.target)) {
@@ -45,7 +38,6 @@ export default function CustomDatePicker({ value, onChange, hasError = false }) 
     }
   }, [isOpen]);
 
-  // Navigate months
   const goToPrevMonth = () => {
     if (viewMonth === 0) {
       setViewMonth(11);
@@ -64,16 +56,14 @@ export default function CustomDatePicker({ value, onChange, hasError = false }) 
     }
   };
 
-  // Build calendar grid
   const calendarDays = useMemo(() => {
     const firstDay = new Date(viewYear, viewMonth, 1);
-    const startDow = firstDay.getDay(); // 0=Sun
+    const startDow = firstDay.getDay(); 
     const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
     const daysInPrevMonth = new Date(viewYear, viewMonth, 0).getDate();
 
     const days = [];
 
-    // Previous month filler
     for (let i = startDow - 1; i >= 0; i--) {
       days.push({
         day: daysInPrevMonth - i,
@@ -83,12 +73,10 @@ export default function CustomDatePicker({ value, onChange, hasError = false }) 
       });
     }
 
-    // Current month
     for (let d = 1; d <= daysInMonth; d++) {
       days.push({ day: d, month: viewMonth, year: viewYear, outside: false });
     }
 
-    // Next month filler (fill to 6 rows × 7 = 42)
     const remaining = 42 - days.length;
     for (let d = 1; d <= remaining; d++) {
       days.push({
@@ -106,7 +94,7 @@ export default function CustomDatePicker({ value, onChange, hasError = false }) 
     const y = dayObj.year;
     const m = String(dayObj.month + 1).padStart(2, '0');
     const d = String(dayObj.day).padStart(2, '0');
-    // Handle month rollover for outside days
+    
     let finalMonth = dayObj.month;
     let finalYear = dayObj.year;
     if (finalMonth < 0) { finalMonth = 11; finalYear -= 1; }
@@ -149,7 +137,7 @@ export default function CustomDatePicker({ value, onChange, hasError = false }) 
 
       {isOpen && (
         <div className="custom-datepicker__calendar">
-          {/* Month navigation */}
+          {}
           <div className="custom-datepicker__nav">
             <button type="button" className="custom-datepicker__nav-btn" onClick={goToPrevMonth} aria-label="Previous month">
               <img src={arrowLeft} alt="" />
@@ -160,7 +148,7 @@ export default function CustomDatePicker({ value, onChange, hasError = false }) 
             </button>
           </div>
 
-          {/* Day grid */}
+          {}
           <div className="custom-datepicker__grid">
             {calendarDays.map((dayObj, idx) => (
               <button

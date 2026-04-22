@@ -1,37 +1,26 @@
-/* ============================================
-   INVOICE APP — GLOBAL STYLES & DESIGN TOKENS
-   ============================================ */
-
-/* --- CSS Custom Properties (Light Theme - Default) --- */
 :root,
 [data-theme="light"] {
-  /* Primary */
+  
   --color-primary: #7C5DFA;
   --color-primary-hover: #9277FF;
   --color-primary-rgb: 124, 93, 250;
 
-  /* Backgrounds */
   --color-bg: #F8F8FB;
   --color-surface: #FFFFFF;
   --color-surface-alt: #F9FAFE;
 
-  /* Text */
   --color-text-primary: #0C0E16;
   --color-text-secondary: #888EB0;
   --color-text-muted: #7E88C3;
   --color-text-label: #7C5DFA;
 
-  /* Borders */
   --color-border: #DFE3FA;
 
-  /* Sidebar */
   --color-sidebar-bg: #373B53;
 
-  /* Invoice Card */
   --color-card-bg: #FFFFFF;
   --color-card-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
 
-  /* Status Colors */
   --color-paid: #33D69F;
   --color-paid-bg: rgba(51, 214, 159, 0.06);
   --color-pending: #FF8F00;
@@ -39,33 +28,27 @@
   --color-draft: #373B53;
   --color-draft-bg: rgba(55, 59, 83, 0.06);
 
-  /* Danger */
   --color-danger: #EC5757;
   --color-danger-hover: #FF9797;
 
-  /* Form */
   --color-input-bg: #FFFFFF;
   --color-input-border: #DFE3FA;
   --color-input-border-focus: #7C5DFA;
   --color-input-border-error: #EC5757;
 
-  /* Detail */
   --color-detail-header: #F9FAFE;
   --color-detail-table-header: #F9FAFE;
   --color-detail-total-bg: #373B53;
   --color-detail-total-text: #FFFFFF;
 
-  /* Overlay */
   --color-overlay: rgba(0, 0, 0, 0.5);
 
-  /* Misc */
   --color-form-panel-bg: #FFFFFF;
   --color-empty-text: #888EB0;
   --color-add-item-bg: #F9FAFE;
   --color-add-item-hover: #DFE3FA;
 }
 
-/* --- Dark Theme --- */
 [data-theme="dark"] {
   --color-primary: #7C5DFA;
   --color-primary-hover: #9277FF;
@@ -115,7 +98,6 @@
   --color-add-item-hover: #1E2139;
 }
 
-/* --- Global Reset --- */
 *,
 *::before,
 *::after {
@@ -145,7 +127,6 @@ body {
   min-height: 100vh;
 }
 
-/* --- Typography --- */
 h1, h2, h3, h4 {
   font-weight: 700;
   line-height: 1.1;
@@ -172,24 +153,20 @@ h4 {
   font-size: 13px;
 }
 
-/* --- Links --- */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* --- Lists --- */
 ul, ol {
   list-style: none;
 }
 
-/* --- Images --- */
 img {
   max-width: 100%;
   display: block;
 }
 
-/* --- Buttons Reset --- */
 button {
   font-family: inherit;
   font-size: inherit;
@@ -199,7 +176,6 @@ button {
   background: none;
 }
 
-/* --- Inputs Reset --- */
 input, select, textarea {
   font-family: inherit;
   font-size: inherit;
@@ -208,7 +184,6 @@ input, select, textarea {
   background: none;
 }
 
-/* --- Scrollbar Styling --- */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -226,13 +201,11 @@ input, select, textarea {
   background-color: var(--color-text-muted);
 }
 
-/* --- Focus Visible --- */
 *:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* --- Transitions --- */
 .theme-transition,
 .theme-transition *,
 .theme-transition *::before,
@@ -240,7 +213,6 @@ input, select, textarea {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-/* --- Screen Reader Only --- */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -253,7 +225,6 @@ input, select, textarea {
   border: 0;
 }
 
-/* --- App Layout --- */
 .app-layout {
   display: flex;
   min-height: 100vh;
@@ -273,7 +244,6 @@ input, select, textarea {
   padding: 0 24px;
 }
 
-/* --- Responsive Layout --- */
 @media (max-width: 1024px) {
   .app-main {
     margin-left: 0;

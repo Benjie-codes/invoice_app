@@ -3,10 +3,6 @@ import arrowRight from '../../assets/icon-arrow-right.svg';
 import { formatDate, formatCurrency } from '../../utils/helpers';
 import './InvoiceCard.css';
 
-/**
- * Single invoice row in the list view.
- * @param {{ invoice: object, onClick: () => void }} props
- */
 export default function InvoiceCard({ invoice, onClick }) {
   return (
     <div

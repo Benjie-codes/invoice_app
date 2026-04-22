@@ -76,7 +76,6 @@
   color: var(--color-text-muted);
 }
 
-/* --- Section Headers --- */
 .invoice-form__section-title {
   font-size: 13px;
   font-weight: 700;
@@ -90,7 +89,6 @@
   margin-top: 0;
 }
 
-/* --- Form Groups --- */
 .invoice-form__group {
   margin-bottom: 24px;
 }
@@ -109,7 +107,6 @@
   grid-template-columns: 1fr 1fr;
 }
 
-/* --- Labels --- */
 .invoice-form__label {
   display: block;
   font-size: 13px;
@@ -134,7 +131,6 @@
   font-weight: 600;
 }
 
-/* --- Inputs --- */
 .invoice-form__input {
   width: 100%;
   padding: 16px 20px;
@@ -163,7 +159,6 @@
   opacity: 0.5;
 }
 
-/* Date input */
 .invoice-form__input[type="date"] {
   position: relative;
   cursor: pointer;
@@ -174,7 +169,6 @@
   cursor: pointer;
 }
 
-/* Select */
 .invoice-form__select {
   width: 100%;
   padding: 16px 20px;
@@ -199,7 +193,6 @@
   border-color: var(--color-input-border-focus);
 }
 
-/* --- Item List --- */
 .invoice-form__items-title {
   font-size: 18px;
   font-weight: 700;
@@ -228,7 +221,6 @@
   margin-bottom: 16px;
 }
 
-/* --- Add Item Button --- */
 .invoice-form__add-item {
   width: 100%;
   padding: 16px;
@@ -248,7 +240,6 @@
   background-color: var(--color-add-item-hover);
 }
 
-/* --- Form Errors Summary --- */
 .invoice-form__errors {
   margin-top: 24px;
 }
@@ -260,7 +251,6 @@
   line-height: 1.6;
 }
 
-/* --- Footer --- */
 .invoice-form__footer {
   display: flex;
   align-items: center;
@@ -282,7 +272,6 @@
   gap: 8px;
 }
 
-/* --- Responsive: Tablet --- */
 @media (max-width: 1024px) {
   .invoice-form-panel {
     left: 0;
@@ -292,7 +281,6 @@
   }
 }
 
-/* --- Responsive: Mobile --- */
 @media (max-width: 768px) {
   .invoice-form-panel {
     width: 100%;
@@ -309,7 +297,6 @@
     margin-bottom: 24px;
   }
 
-  /* City + Post Code: 2-col, Country: full width below */
   .invoice-form__row--3 {
     grid-template-columns: 1fr 1fr;
   }
@@ -318,17 +305,14 @@
     grid-column: 1 / -1;
   }
 
-  /* Invoice Date + Payment Terms stack */
   .invoice-form__row--2 {
     grid-template-columns: 1fr;
   }
 
-  /* Items header hidden on mobile */
   .invoice-form__items-header {
     display: none;
   }
 
-  /* Footer: all buttons in a row, centered */
   .invoice-form__footer--create {
     flex-wrap: wrap;
     justify-content: center;

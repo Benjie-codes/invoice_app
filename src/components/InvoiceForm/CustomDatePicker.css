@@ -42,7 +42,6 @@
   opacity: 0.6;
 }
 
-/* --- Calendar Dropdown --- */
 .custom-datepicker__calendar {
   position: absolute;
   top: calc(100% + 8px);
@@ -71,7 +70,6 @@
   }
 }
 
-/* Month navigation */
 .custom-datepicker__nav {
   display: flex;
   align-items: center;
@@ -107,7 +105,6 @@
   letter-spacing: -0.25px;
 }
 
-/* Day Grid */
 .custom-datepicker__grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);

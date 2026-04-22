@@ -2,19 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import arrowDown from '../../assets/icon-arrow-down.svg';
 import './CustomSelect.css';
 
-/**
- * Custom select dropdown matching the design system.
- * @param {{
- *   value: number|string,
- *   options: Array<{ value: number|string, label: string }>,
- *   onChange: (value: number|string) => void
- * }} props
- */
 export default function CustomSelect({ value, options, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
-  // Close on outside click
   useEffect(() => {
     function handleClickOutside(e) {
       if (ref.current && !ref.current.contains(e.target)) {
@@ -27,7 +18,6 @@ export default function CustomSelect({ value, options, onChange }) {
     }
   }, [isOpen]);
 
-  // Close on ESC
   useEffect(() => {
     function handleEsc(e) {
       if (e.key === 'Escape') setIsOpen(false);

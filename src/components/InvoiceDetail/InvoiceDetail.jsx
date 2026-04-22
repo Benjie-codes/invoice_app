@@ -5,15 +5,6 @@ import { formatDate, formatCurrency } from '../../utils/helpers';
 import arrowLeft from '../../assets/icon-arrow-left.svg';
 import './InvoiceDetail.css';
 
-/**
- * Invoice detail view showing full invoice information.
- * @param {{
- *   invoiceId: string,
- *   onGoBack: () => void,
- *   onEdit: (id: string) => void,
- *   onDelete: (id: string) => void
- * }} props
- */
 export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete }) {
   const { invoices, markAsPaid } = useInvoices();
   const invoice = invoices.find((inv) => inv.id === invoiceId);
@@ -59,7 +50,7 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
         Go back
       </button>
 
-      {/* Status Bar */}
+      {}
       <div className="invoice-detail__status-bar">
         <div className="invoice-detail__status-left">
           <span className="invoice-detail__status-label">Status</span>
@@ -70,9 +61,9 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
         </div>
       </div>
 
-      {/* Main Card */}
+      {}
       <div className="invoice-detail__card">
-        {/* Header */}
+        {}
         <div className="invoice-detail__header">
           <div>
             <div className="invoice-detail__id">
@@ -89,7 +80,7 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
           </div>
         </div>
 
-        {/* Info Grid */}
+        {}
         <div className="invoice-detail__info">
           <div className="invoice-detail__info-dates">
             <div>
@@ -119,9 +110,9 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
           </div>
         </div>
 
-        {/* Items Table */}
+        {}
         <div className="invoice-detail__table">
-          {/* Desktop table header */}
+          {}
           <div className="invoice-detail__table-header">
             <span>Item Name</span>
             <span>QTY.</span>
@@ -132,10 +123,10 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
           {invoice.items.map((item, index) => (
             <div key={index} className="invoice-detail__table-row">
               <span className="invoice-detail__item-name">{item.name}</span>
-              {/* Desktop: separate qty and price */}
+              {}
               <span className="invoice-detail__item-qty">{item.quantity}</span>
               <span className="invoice-detail__item-price">{formatCurrency(item.price)}</span>
-              {/* Mobile: combined "qty x £ price" */}
+              {}
               <span className="invoice-detail__item-qty-price">
                 {item.quantity} x {formatCurrency(item.price)}
               </span>
@@ -144,7 +135,7 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
           ))}
         </div>
 
-        {/* Amount Due / Grand Total */}
+        {}
         <div className="invoice-detail__total">
           <span className="invoice-detail__total-label invoice-detail__total-label--desktop">Amount Due</span>
           <span className="invoice-detail__total-label invoice-detail__total-label--mobile">Grand Total</span>
@@ -152,7 +143,7 @@ export default function InvoiceDetail({ invoiceId, onGoBack, onEdit, onDelete })
         </div>
       </div>
 
-      {/* Mobile Bottom Actions */}
+      {}
       <div className="invoice-detail__mobile-actions">
         {actionButtons}
       </div>

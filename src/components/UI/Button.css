@@ -21,7 +21,6 @@
   cursor: not-allowed;
 }
 
-/* --- Primary --- */
 .btn--primary {
   background-color: var(--color-primary);
   color: #FFFFFF;
@@ -31,7 +30,6 @@
   background-color: var(--color-primary-hover);
 }
 
-/* --- Secondary --- */
 .btn--secondary {
   background-color: var(--color-surface-alt);
   color: var(--color-text-muted);
@@ -41,7 +39,6 @@
   background-color: var(--color-border);
 }
 
-/* --- Danger --- */
 .btn--danger {
   background-color: var(--color-danger);
   color: #FFFFFF;
@@ -51,7 +48,6 @@
   background-color: var(--color-danger-hover);
 }
 
-/* --- Dark --- */
 .btn--dark {
   background-color: #373B53;
   color: var(--color-text-secondary);
@@ -71,7 +67,6 @@
   background-color: #1E2139;
 }
 
-/* --- With Icon (New Invoice button) --- */
 .btn--with-icon {
   padding-left: 8px;
 }
@@ -92,7 +87,6 @@
   height: 11px;
 }
 
-/* --- Edit (text-style) --- */
 .btn--edit {
   background-color: var(--color-surface-alt);
   color: var(--color-text-muted);

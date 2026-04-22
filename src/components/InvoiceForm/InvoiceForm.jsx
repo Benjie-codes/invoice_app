@@ -22,20 +22,11 @@ const emptyForm = {
   items: [{ ...emptyItem }],
 };
 
-/**
- * Sliding form panel for creating/editing invoices.
- * @param {{
- *   mode: 'create' | 'edit',
- *   invoiceId?: string,
- *   onClose: () => void
- * }} props
- */
 export default function InvoiceForm({ mode, invoiceId, onClose }) {
   const { invoices, addInvoice, updateInvoice } = useInvoices();
   const [formData, setFormData] = useState(emptyForm);
   const [errors, setErrors] = useState({});
 
-  // Load existing invoice for edit mode
   useEffect(() => {
     if (mode === 'edit' && invoiceId) {
       const invoice = invoices.find((inv) => inv.id === invoiceId);
@@ -60,7 +51,6 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
     }
   }, [mode, invoiceId, invoices]);
 
-  // Close on ESC
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === 'Escape') onClose();
@@ -69,10 +59,9 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
     return () => document.removeEventListener('keydown', handleEsc);
   }, [onClose]);
 
-  // --- Field change handlers ---
   const updateField = useCallback((field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
-    // Clear error for this field
+    
     setErrors((prev) => {
       const next = { ...prev };
       delete next[field];
@@ -85,7 +74,7 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
       ...prev,
       [type]: { ...prev[type], [field]: value },
     }));
-    // Clear specific address error
+    
     const errorKey = type === 'senderAddress'
       ? `sender${field.charAt(0).toUpperCase() + field.slice(1)}`
       : `client${field.charAt(0).toUpperCase() + field.slice(1)}`;
@@ -119,7 +108,6 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
     }));
   }, []);
 
-  // --- Submit handlers ---
   const handleSaveAndSend = (e) => {
     e.preventDefault();
     const { isValid, errors: validationErrors } = validateInvoice(formData, false);
@@ -389,7 +377,7 @@ export default function InvoiceForm({ mode, invoiceId, onClose }) {
             </div>
           )}
 
-          {/* Footer */}
+          {}
           {mode === 'create' ? (
             <div className="invoice-form__footer invoice-form__footer--create">
               <Button variant="secondary" onClick={onClose}>

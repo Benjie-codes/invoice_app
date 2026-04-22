@@ -5,15 +5,10 @@ import './FilterDropdown.css';
 
 const STATUS_OPTIONS = ['draft', 'pending', 'paid'];
 
-/**
- * Filter dropdown with checkboxes for invoice status filtering.
- * @param {{ filters: string[], onFilterChange: (filters: string[]) => void }} props
- */
 export default function FilterDropdown({ filters, onFilterChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close on outside click
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -24,7 +19,6 @@ export default function FilterDropdown({ filters, onFilterChange }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Close on ESC
   useEffect(() => {
     function handleEsc(e) {
       if (e.key === 'Escape') setIsOpen(false);

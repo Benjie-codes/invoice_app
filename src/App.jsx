@@ -20,7 +20,6 @@ function AppContent() {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteTargetId, setDeleteTargetId] = useState(null);
 
-  // Reset scroll position to top when changing views
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentView, selectedInvoiceId]);

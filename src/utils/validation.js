@@ -1,18 +1,10 @@
-/**
- * Validate invoice form data.
- * @param {object} formData - The invoice form data
- * @param {boolean} isDraft - If true, only validate item list minimally
- * @returns {{ isValid: boolean, errors: object }} 
- */
 export function validateInvoice(formData, isDraft = false) {
   const errors = {};
 
-  // Drafts only need minimal validation
   if (isDraft) {
     return { isValid: true, errors: {} };
   }
 
-  // Bill From
   if (!formData.senderAddress?.street?.trim()) {
     errors.senderStreet = "can't be empty";
   }
@@ -26,7 +18,6 @@ export function validateInvoice(formData, isDraft = false) {
     errors.senderCountry = "can't be empty";
   }
 
-  // Bill To
   if (!formData.clientName?.trim()) {
     errors.clientName = "can't be empty";
   }
@@ -48,7 +39,6 @@ export function validateInvoice(formData, isDraft = false) {
     errors.clientCountry = "can't be empty";
   }
 
-  // Dates & Description
   if (!formData.createdAt) {
     errors.createdAt = "can't be empty";
   }
@@ -56,7 +46,6 @@ export function validateInvoice(formData, isDraft = false) {
     errors.description = "can't be empty";
   }
 
-  // Items
   if (!formData.items || formData.items.length === 0) {
     errors.items = 'An item must be added';
   } else {
@@ -82,9 +71,6 @@ export function validateInvoice(formData, isDraft = false) {
   };
 }
 
-/**
- * Simple email format validation.
- */
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }

@@ -2,23 +2,13 @@ import { useEffect, useRef } from 'react';
 import Button from '../UI/Button';
 import './DeleteModal.css';
 
-/**
- * Delete confirmation modal with focus trap.
- * @param {{
- *   invoiceId: string,
- *   onConfirm: () => void,
- *   onCancel: () => void
- * }} props
- */
 export default function DeleteModal({ invoiceId, onConfirm, onCancel }) {
   const modalRef = useRef(null);
   const cancelBtnRef = useRef(null);
 
-  // Focus trap + ESC to close
   useEffect(() => {
     const previousFocus = document.activeElement;
 
-    // Focus the cancel button on open
     cancelBtnRef.current?.focus();
 
     const handleKeyDown = (e) => {
@@ -27,7 +17,6 @@ export default function DeleteModal({ invoiceId, onConfirm, onCancel }) {
         return;
       }
 
-      // Focus trap
       if (e.key === 'Tab') {
         const focusable = modalRef.current?.querySelectorAll(
           'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -53,7 +42,6 @@ export default function DeleteModal({ invoiceId, onConfirm, onCancel }) {
 
     document.addEventListener('keydown', handleKeyDown);
 
-    // Prevent body scroll
     document.body.style.overflow = 'hidden';
 
     return () => {

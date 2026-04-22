@@ -2,22 +2,12 @@ import { formatCurrency } from '../../utils/helpers';
 import deleteIcon from '../../assets/icon-delete.svg';
 import './ItemRow.css';
 
-/**
- * Single item row within the invoice form.
- * @param {{
- *   item: { name: string, quantity: string|number, price: string|number, total: number },
- *   index: number,
- *   onChange: (index: number, field: string, value: string) => void,
- *   onDelete: (index: number) => void,
- *   errors?: { name?: string, quantity?: string, price?: string }
- * }} props
- */
 export default function ItemRow({ item, index, onChange, onDelete, errors = {} }) {
   const total = (Number(item.quantity) || 0) * (Number(item.price) || 0);
 
   return (
     <div className="item-row">
-      {/* Item Name */}
+      {}
       <div>
         <span className="item-row__mobile-label">Item Name</span>
         <input
@@ -30,7 +20,7 @@ export default function ItemRow({ item, index, onChange, onDelete, errors = {} }
         />
       </div>
 
-      {/* Qty, Price, Total, Delete - grouped for mobile */}
+      {}
       <div className="item-row__bottom">
         <div>
           <span className="item-row__mobile-label">Qty.</span>

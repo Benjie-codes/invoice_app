@@ -1,6 +1,3 @@
-/**
- * Sample invoices matching the design screenshots.
- */
 export const sampleInvoices = [
   {
     id: 'RT3080',

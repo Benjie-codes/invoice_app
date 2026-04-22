@@ -25,7 +25,6 @@
   height: 10px;
 }
 
-/* --- Status Bar --- */
 .invoice-detail__status-bar {
   display: flex;
   align-items: center;
@@ -54,7 +53,6 @@
   gap: 8px;
 }
 
-/* --- Main Card --- */
 .invoice-detail__card {
   background-color: var(--color-card-bg);
   border-radius: 8px;
@@ -62,7 +60,6 @@
   padding: 48px;
 }
 
-/* Header */
 .invoice-detail__header {
   display: flex;
   justify-content: space-between;
@@ -93,7 +90,6 @@
   line-height: 1.6;
 }
 
-/* Info Grid */
 .invoice-detail__info {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -127,7 +123,6 @@
   margin-top: 8px;
 }
 
-/* Items Table */
 .invoice-detail__table {
   background-color: var(--color-detail-table-header);
   border-radius: 8px 8px 0 0;
@@ -175,7 +170,6 @@
   font-weight: 700;
 }
 
-/* Mobile combined qty x price - hidden on desktop */
 .invoice-detail__item-qty-price {
   display: none;
   color: var(--color-text-muted);
@@ -189,7 +183,6 @@
   color: var(--color-text-primary);
 }
 
-/* Amount Due Footer */
 .invoice-detail__total {
   display: flex;
   align-items: center;
@@ -205,7 +198,6 @@
   font-weight: 500;
 }
 
-/* Desktop shows "Amount Due", mobile shows "Grand Total" */
 .invoice-detail__total-label--mobile {
   display: none;
 }
@@ -216,12 +208,10 @@
   letter-spacing: -0.5px;
 }
 
-/* --- Mobile Status Bar Actions (bottom fixed) --- */
 .invoice-detail__mobile-actions {
   display: none;
 }
 
-/* --- Responsive --- */
 @media (max-width: 768px) {
   .invoice-detail__card {
     padding: 24px;
@@ -244,7 +234,6 @@
     width: 100%;
   }
 
-  /* Info grid: 2 columns on mobile, email spans full width */
   .invoice-detail__info {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
@@ -255,12 +244,10 @@
     grid-column: 1 / -1;
   }
 
-  /* Hide desktop table header */
   .invoice-detail__table-header {
     display: none;
   }
 
-  /* Mobile item rows: name + combined qty/price on left, total on right */
   .invoice-detail__table-row {
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
@@ -280,13 +267,11 @@
     font-size: 13px;
   }
 
-  /* Hide separate qty and price on mobile */
   .invoice-detail__item-qty,
   .invoice-detail__item-price {
     display: none;
   }
 
-  /* Show combined "qty x £ price" on mobile */
   .invoice-detail__item-qty-price {
     display: block;
     grid-column: 1;
@@ -294,7 +279,6 @@
     text-align: left;
   }
 
-  /* Toggle total labels */
   .invoice-detail__total-label--desktop {
     display: none;
   }
@@ -311,7 +295,6 @@
     font-size: 20px;
   }
 
-  /* Hide actions in status bar, show bottom bar */
   .invoice-detail__actions {
     display: none;
   }
@@ -334,7 +317,6 @@
     z-index: 50;
   }
 
-  /* Add bottom padding so content isn't hidden behind fixed bar */
   .invoice-detail {
     padding-bottom: 80px;
   }
