@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { InvoiceProvider, useInvoices } from './context/InvoiceContext';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -19,6 +19,11 @@ function AppContent() {
 
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteTargetId, setDeleteTargetId] = useState(null);
+
+  // Reset scroll position to top when changing views
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentView, selectedInvoiceId]);
 
   const handleViewInvoice = useCallback((id) => {
     setSelectedInvoiceId(id);
