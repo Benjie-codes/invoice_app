@@ -1,7 +1,7 @@
 import { useTheme } from '../../context/ThemeContext';
-import logo from '../../assets/Logo.png';
+import logo from '../../assets/logo.png';
 import avatarImg from '../../assets/Oval.png';
-import moonIcon from '../../assets/path.svg';
+import moonIcon from '../../assets/Path.svg';
 import sunIcon from '../../assets/sun.svg';
 import './Sidebar.css';
 
